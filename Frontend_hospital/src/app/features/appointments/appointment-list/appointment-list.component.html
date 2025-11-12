@@ -1,0 +1,77 @@
+<div class="appointments-container">
+  <div class="header">
+    <h1>Gestión de Citas</h1>
+    <button mat-raised-button color="primary">
+      <mat-icon>add</mat-icon>
+      Nueva Cita
+    </button>
+  </div>
+
+  <mat-form-field appearance="outline" class="search-field">
+    <mat-label>Buscar citas</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Paciente, doctor o fecha">
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+
+  <div class="table-container" *ngIf="!isLoading">
+    <table mat-table [dataSource]="dataSource" matSort class="appointments-table">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+        <td mat-cell *matCellDef="let appointment">{{ appointment.id }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="appointmentDate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha y Hora</th>
+        <td mat-cell *matCellDef="let appointment">{{ appointment.appointmentDate | date:'short' }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="patient">
+        <th mat-header-cell *matHeaderCellDef>Paciente</th>
+        <td mat-cell *matCellDef="let appointment">
+          {{ appointment.patient?.name }} {{ appointment.patient?.lastName }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="doctor">
+        <th mat-header-cell *matHeaderCellDef>Doctor</th>
+        <td mat-cell *matCellDef="let appointment">
+          {{ appointment.doctor?.name }} {{ appointment.doctor?.lastName }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef>Estado</th>
+        <td mat-cell *matCellDef="let appointment">
+          <span [ngClass]="getStatusClass(appointment.status)">
+            {{ getStatusText(appointment.status) }}
+          </span>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Acciones</th>
+        <td mat-cell *matCellDef="let appointment">
+          <button mat-icon-button color="primary" title="Editar">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" title="Eliminar">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <div *ngIf="dataSource.data.length === 0" class="no-data">
+      <mat-icon>event</mat-icon>
+      <p>No hay citas programadas</p>
+    </div>
+  </div>
+
+  <div *ngIf="isLoading" class="loading">
+    <mat-spinner></mat-spinner>
+    <p>Cargando citas...</p>
+  </div>
+</div>

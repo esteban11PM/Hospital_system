@@ -1,0 +1,66 @@
+<div class="dashboard-container">
+  <mat-toolbar color="primary" class="toolbar">
+    <span>Sistema Hospitalario</span>
+    <span class="spacer"></span>
+    <span *ngIf="currentUser">Bienvenido, {{ currentUser.username }}</span>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Cerrar Sesión</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav mode="side" opened class="sidenav">
+      <mat-nav-list>
+        <mat-list-item *ngFor="let item of menuItems" [routerLink]="item.route" routerLinkActive="active">
+          <mat-icon matListIcon>{{ item.icon }}</mat-icon>
+          <span matLine>{{ item.label }}</span>
+        </mat-list-item>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content class="content">
+      <div class="dashboard-content">
+        <h1>Dashboard</h1>
+        <div class="stats-grid">
+          <mat-card class="stat-card">
+            <mat-card-content>
+              <mat-icon>people</mat-icon>
+              <h3>Pacientes</h3>
+              <p>Gestión completa de pacientes</p>
+            </mat-card-content>
+          </mat-card>
+
+          <mat-card class="stat-card">
+            <mat-card-content>
+              <mat-icon>local_hospital</mat-icon>
+              <h3>Doctores</h3>
+              <p>Administración de médicos</p>
+            </mat-card-content>
+          </mat-card>
+
+          <mat-card class="stat-card">
+            <mat-card-content>
+              <mat-icon>event</mat-icon>
+              <h3>Citas</h3>
+              <p>Programación y gestión de citas</p>
+            </mat-card-content>
+          </mat-card>
+
+          <mat-card class="stat-card">
+            <mat-card-content>
+              <mat-icon>school</mat-icon>
+              <h3>Especialidades</h3>
+              <p>Catálogo de especialidades médicas</p>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

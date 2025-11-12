@@ -1,0 +1,49 @@
+/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/theming';
+
+// Include the common styles for Angular Material
+@include mat-core();
+
+// Define the palettes for your theme
+$hospital-primary: mat-palette($mat-indigo);
+$hospital-accent: mat-palette($mat-pink, A200, A100, A400);
+$hospital-warn: mat-palette($mat-red);
+
+// Create the theme object
+$hospital-theme: mat-light-theme($hospital-primary, $hospital-accent, $hospital-warn);
+
+// Include theme styles for Angular Material components
+@include angular-material-theme($hospital-theme);
+
+// Global styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #fafafa;
+}
+
+html, body {
+  height: 100%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mb-16 {
+  margin-bottom: 16px;
+}
+
+.mb-24 {
+  margin-bottom: 24px;
+}

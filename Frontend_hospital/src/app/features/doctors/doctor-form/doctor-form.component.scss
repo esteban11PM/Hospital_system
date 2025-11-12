@@ -1,0 +1,43 @@
+.doctor-form-container {
+  min-width: 400px;
+}
+
+.doctor-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-row {
+  display: flex;
+  gap: 16px;
+
+  .form-field {
+    flex: 1;
+  }
+}
+
+.form-field {
+  width: 100%;
+
+  &.full-width {
+    width: 100%;
+  }
+}
+
+.active-checkbox {
+  margin-top: 8px;
+}
+
+.dialog-actions {
+  padding: 16px 0 0 0;
+  gap: 8px;
+
+  button {
+    min-width: 100px;
+  }
+}
+
+mat-spinner {
+  margin-right: 8px;
+}

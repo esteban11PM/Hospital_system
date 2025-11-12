@@ -1,0 +1,59 @@
+<div class="consulting-rooms-container">
+  <div class="header">
+    <h1>Gestión de Consultorios</h1>
+    <button mat-raised-button color="primary">
+      <mat-icon>add</mat-icon>
+      Nuevo Consultorio
+    </button>
+  </div>
+
+  <mat-form-field appearance="outline" class="search-field">
+    <mat-label>Buscar consultorios</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Nombre o descripción">
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+
+  <div class="table-container" *ngIf="!isLoading">
+    <table mat-table [dataSource]="dataSource" matSort class="consulting-rooms-table">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+        <td mat-cell *matCellDef="let consultingRoom">{{ consultingRoom.id }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
+        <td mat-cell *matCellDef="let consultingRoom">{{ consultingRoom.name }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef>Descripción</th>
+        <td mat-cell *matCellDef="let consultingRoom">{{ consultingRoom.description || 'N/A' }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Acciones</th>
+        <td mat-cell *matCellDef="let consultingRoom">
+          <button mat-icon-button color="primary" title="Editar">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" title="Eliminar">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <div *ngIf="dataSource.data.length === 0" class="no-data">
+      <mat-icon>meeting_room</mat-icon>
+      <p>No hay consultorios registrados</p>
+    </div>
+  </div>
+
+  <div *ngIf="isLoading" class="loading">
+    <mat-spinner></mat-spinner>
+    <p>Cargando consultorios...</p>
+  </div>
+</div>

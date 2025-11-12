@@ -1,0 +1,70 @@
+<div class="doctor-form-container">
+  <h2 mat-dialog-title>{{ title }}</h2>
+
+  <mat-dialog-content>
+    <form [formGroup]="doctorForm" (ngSubmit)="onSubmit()" class="doctor-form">
+      <div class="form-row">
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Nombre</mat-label>
+          <input matInput formControlName="name" placeholder="Ingrese el nombre">
+          <mat-error *ngIf="doctorForm.get('name')?.invalid && doctorForm.get('name')?.touched">
+            {{ getErrorMessage('name') }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Apellido</mat-label>
+          <input matInput formControlName="lastName" placeholder="Ingrese el apellido">
+          <mat-error *ngIf="doctorForm.get('lastName')?.invalid && doctorForm.get('lastName')?.touched">
+            {{ getErrorMessage('lastName') }}
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <mat-form-field appearance="outline" class="form-field full-width">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email" placeholder="correo@ejemplo.com">
+        <mat-icon matSuffix>email</mat-icon>
+        <mat-error *ngIf="doctorForm.get('email')?.invalid && doctorForm.get('email')?.touched">
+          {{ getErrorMessage('email') }}
+        </mat-error>
+      </mat-form-field>
+
+      <div class="form-row">
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Teléfono</mat-label>
+          <input matInput formControlName="phone" placeholder="3001234567">
+          <mat-icon matSuffix>phone</mat-icon>
+          <mat-error *ngIf="doctorForm.get('phone')?.invalid && doctorForm.get('phone')?.touched">
+            {{ getErrorMessage('phone') }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Número de Licencia</mat-label>
+          <input matInput formControlName="licenseNumber" placeholder="LIC123456">
+          <mat-icon matSuffix>badge</mat-icon>
+          <mat-error *ngIf="doctorForm.get('licenseNumber')?.invalid && doctorForm.get('licenseNumber')?.touched">
+            {{ getErrorMessage('licenseNumber') }}
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <mat-checkbox formControlName="active" class="active-checkbox">
+        Activo
+      </mat-checkbox>
+    </form>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end" class="dialog-actions">
+    <button mat-button mat-dialog-close type="button" [disabled]="isLoading">
+      Cancelar
+    </button>
+    <button mat-raised-button color="primary" type="submit"
+            [disabled]="doctorForm.invalid || isLoading"
+            (click)="onSubmit()">
+      <mat-spinner diameter="20" *ngIf="isLoading"></mat-spinner>
+      {{ isEditMode ? 'Actualizar' : 'Crear' }}
+    </button>
+  </mat-dialog-actions>
+</div>
