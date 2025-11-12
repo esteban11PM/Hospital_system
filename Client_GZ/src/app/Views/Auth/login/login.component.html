@@ -1,0 +1,46 @@
+<div class="layout-container">
+	<main class="main-content">
+		<div class="contenedor-formulario">
+			<h1 class="kanit-bold">Game Zone</h1>
+			<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="formulario">
+				<!-- Username -->
+				<mat-form-field appearance="outline">
+					<mat-label>Usuario</mat-label>
+					<input matInput formControlName="username" required>
+					<mat-icon matPrefix>person</mat-icon>
+					<mat-error
+						*ngIf="loginForm.get('username')?.hasError('required') && loginForm.get('username')?.touched">
+						Usuario requerido
+					</mat-error>
+				</mat-form-field>
+
+				<!-- Password -->
+				<mat-form-field appearance="outline">
+					<mat-label>Contraseña</mat-label>
+					<input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password" required>
+					<mat-icon matPrefix>lock</mat-icon>
+					<!-- Boton Ver Contraseña -->
+					<button mat-icon-button matSuffix (click)="hidePassword = !hidePassword"
+						[attr.aria-label]="'Mostrar contraseña'" type="button">
+						<mat-icon class="mat-icon-view">
+							{{hidePassword ? 'visibility_off' : 'visibility'}}
+						</mat-icon>
+					</button>
+					<!-- Validaciones -->
+					<mat-error
+						*ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched">
+						La contraseña es requerida
+					</mat-error>
+				</mat-form-field>
+
+				<button mat-raised-button type="submit" [disabled]="loginForm.invalid || isLoggingIn()">
+					{{ isLoggingIn() ? 'ENTRANDO...' : 'INICIAR SESIÓN' }}
+				</button>
+
+				<div class="register-link">
+					¿Nuevo en Game Zone? <a routerLink="/register">Crear cuenta</a>
+				</div>
+			</form>
+		</div>
+	</main>
+</div>

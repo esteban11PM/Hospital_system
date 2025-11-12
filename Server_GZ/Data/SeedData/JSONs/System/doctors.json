@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Dr. Juan",
+    "lastName": "Pérez",
+    "email": "juan.perez@hospital.com",
+    "phone": "3001234567",
+    "licenseNumber": "MED12345",
+    "active": true
+  },
+  {
+    "name": "Dra. María",
+    "lastName": "Gómez",
+    "email": "maria.gomez@hospital.com",
+    "phone": "3002345678",
+    "licenseNumber": "MED23456",
+    "active": true
+  },
+  {
+    "name": "Dr. Carlos",
+    "lastName": "Rodríguez",
+    "email": "carlos.rodriguez@hospital.com",
+    "phone": "3003456789",
+    "licenseNumber": "MED34567",
+    "active": true
+  }
+]

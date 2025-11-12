@@ -1,0 +1,19 @@
+[
+  {
+    "name": "ADMINISTRADOR",
+    "description": "Acceso a la CRUD con Privilegios",
+    "active": true
+  },
+  {
+    "name": "USUARIO",
+    "description": "Acceso a la CRUD",
+    "active": true
+
+  },
+  {
+    "name": "PRUEBA",
+    "description": "PRUEBA",
+    "active": true
+
+  }
+]

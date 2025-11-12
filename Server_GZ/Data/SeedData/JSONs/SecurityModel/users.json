@@ -1,0 +1,16 @@
+[
+  {
+    "username": "admin",
+    "password": "admin123",
+    "patientId": 1,
+    "roleId": 1,
+    "active": true
+  },
+  {
+    "username": "user",
+    "password": "user123",
+    "patientId": 2,
+    "roleId": 2,
+    "active": true
+  }
+]

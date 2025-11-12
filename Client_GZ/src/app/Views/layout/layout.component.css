@@ -1,0 +1,11 @@
+.container {
+	margin: 0;
+	padding: 24px;
+}
+
+/* Para mantener la responsividad */
+@media (max-width: 768px) {
+	.container {
+		padding: 16px;
+	}
+}

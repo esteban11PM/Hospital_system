@@ -1,0 +1,22 @@
+[
+  {
+    "appointmentDate": "2025-11-15T10:00:00Z",
+    "notes": "Consulta de rutina",
+    "status": "Pending",
+    "patientId": 1,
+    "doctorId": 1,
+    "consultingRoomId": 1,
+    "specialtyId": 1,
+    "active": true
+  },
+  {
+    "appointmentDate": "2025-11-16T14:30:00Z",
+    "notes": "Seguimiento dermatológico",
+    "status": "Confirmed",
+    "patientId": 2,
+    "doctorId": 2,
+    "consultingRoomId": 2,
+    "specialtyId": 2,
+    "active": true
+  }
+]

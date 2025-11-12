@@ -1,0 +1,9 @@
+<h2 style="text-align: center;">Editar GameAccessory</h2>
+
+<app-base-form-pivote
+  *ngIf="entity && selectFields.length > 0"
+    [entity]="entity"
+    [selectFields]="selectFields"
+    [cancelRoute]="'/system/gamestationaccessory'"
+    (save)="handleUpdateGTAccessory($event)">
+</app-base-form-pivote>

@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Consultorio 101",
+    "description": "Consultorio principal con equipo de cardiología avanzado.",
+    "active": true
+  },
+  {
+    "name": "Consultorio 102",
+    "description": "Consultorio de dermatología con lámpara UV y microscopio.",
+    "active": true
+  },
+  {
+    "name": "Consultorio 201",
+    "description": "Consultorio pediátrico con área de juegos para niños.",
+    "active": true
+  },
+  {
+    "name": "Consultorio 202",
+    "description": "Consultorio de ginecología con equipo de ultrasonido.",
+    "active": true
+  }
+]

@@ -1,0 +1,118 @@
+<mat-sidenav-container class="sidenav-container">
+	<!-- Sidebar Overlay -->
+	<mat-sidenav #sidenav mode="over" [(opened)]="isSidebarOpen" (keydown.escape)="closeSidebar()"
+		class="sidebar-overlay" fixedInViewport>
+
+		<!-- Header del Sidebar -->
+		<div class="sidebar-header">
+			<button mat-icon-button (click)="closeSidebar()" class="close-btn">
+				<mat-icon>close</mat-icon>
+			</button>
+			<span class="sidebar-title">Menú Principal</span>
+		</div>
+
+		<!-- <mat-divider></mat-divider> -->
+
+		<!-- Navegación -->
+		<mat-nav-list>
+			<!-- Opción Home -->
+			<a mat-list-item routerLink="landing" routerLinkActive="active-link" (click)="closeSidebar()"
+				class="nav-item home-item">
+				<mat-icon matListItemIcon>home</mat-icon>
+				<span matListItemTitle>Home</span>
+			</a>
+
+			<!-- <mat-divider></mat-divider> -->
+
+			<!-- Sección: Sistema -->
+			<div class="section-header">
+				<mat-icon class="section-icon">settings</mat-icon>
+				<span class="section-title">Sistema</span>
+			</div>
+
+			<a mat-list-item routerLink="/system/game" routerLinkActive="active-link" (click)="closeSidebar()"
+				class="nav-item sub-item">
+				<mat-icon matListItemIcon>sports_esports</mat-icon>
+				<span matListItemTitle>Games</span>
+			</a>
+
+			<a mat-list-item routerLink="/system/gamestation" routerLinkActive="active-link" (click)="closeSidebar()"
+				class="nav-item sub-item">
+				<mat-icon matListItemIcon>tv</mat-icon>
+				<span matListItemTitle>GameStations</span>
+			</a>
+
+			<a mat-list-item routerLink="/system/accessory" routerLinkActive="active-link" (click)="closeSidebar()"
+				class="nav-item sub-item">
+				<mat-icon matListItemIcon>headphones</mat-icon>
+				<span matListItemTitle>Accessories</span>
+			</a>
+
+			<a mat-list-item routerLink="/system/gameassignment" routerLinkActive="active-link" (click)="closeSidebar()"
+				class="nav-item sub-item">
+				<mat-icon matListItemIcon>assignment</mat-icon>
+				<span matListItemTitle>GameAssignments</span>
+			</a>
+
+			<a mat-list-item routerLink="/system/gamestationaccessory" routerLinkActive="active-link"
+				(click)="closeSidebar()" class="nav-item sub-item">
+				<mat-icon matListItemIcon>device_hub</mat-icon>
+				<span matListItemTitle>GameStationAccessories</span>
+			</a>
+
+			<!-- <mat-divider></mat-divider> -->
+
+			<!-- Sección: Modelo de Seguridad -->
+			<div class="section-header">
+				<mat-icon class="section-icon">security</mat-icon>
+				<span class="section-title">Security Model</span>
+			</div>
+
+			<a mat-list-item routerLink="/securitymodel/person" routerLinkActive="active-link" (click)="closeSidebar()"
+				class="nav-item sub-item">
+				<mat-icon matListItemIcon>person</mat-icon>
+				<span matListItemTitle>Persons</span>
+			</a>
+
+			<a mat-list-item routerLink="/securitymodel/user" routerLinkActive="active-link" (click)="closeSidebar()"
+				class="nav-item sub-item">
+				<mat-icon matListItemIcon>badge</mat-icon>
+				<span matListItemTitle>Users</span>
+			</a>
+
+			<a mat-list-item routerLink="/securitymodel/role" routerLinkActive="active-link" (click)="closeSidebar()"
+				class="nav-item sub-item">
+				<mat-icon matListItemIcon>admin_panel_settings</mat-icon>
+				<span matListItemTitle>Roles</span>
+			</a>
+
+		</mat-nav-list>
+
+		<!-- Espacio flexible -->
+		<div class="spacer"></div>
+
+	</mat-sidenav>
+
+	<!-- Contenido principal -->
+	<mat-sidenav-content class="content">
+		<!-- Header -->
+		<mat-toolbar class="header-toolbar">
+			<button mat-icon-button (click)="toggleSidebar()" class="menu-button" aria-label="Toggle menu">
+				<mat-icon>menu</mat-icon>
+			</button>
+
+			<span class="app-title">Game Zone</span>
+
+			<span class="spacer"></span>
+
+			<button mat-icon-button aria-label="Cerrar sesión" appLogoutButton class="logout-btn">
+				<mat-icon>logout</mat-icon>
+			</button>
+		</mat-toolbar>
+
+		<!-- Contenido proyectado -->
+		<div class="content-wrapper">
+			<ng-content></ng-content>
+		</div>
+	</mat-sidenav-content>
+</mat-sidenav-container>

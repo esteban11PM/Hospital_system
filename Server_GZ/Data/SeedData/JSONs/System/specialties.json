@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Cardiología",
+    "description": "Especialidad médica dedicada al estudio y tratamiento de enfermedades del corazón y del sistema cardiovascular.",
+    "active": true
+  },
+  {
+    "name": "Dermatología",
+    "description": "Especialidad que se ocupa del diagnóstico y tratamiento de enfermedades de la piel, cabello y uñas.",
+    "active": true
+  },
+  {
+    "name": "Pediatría",
+    "description": "Especialidad médica enfocada en la atención médica de bebés, niños y adolescentes.",
+    "active": true
+  },
+  {
+    "name": "Ginecología",
+    "description": "Especialidad que trata las enfermedades del aparato reproductor femenino.",
+    "active": true
+  },
+  {
+    "name": "Oftalmología",
+    "description": "Especialidad médica que se ocupa del estudio y tratamiento de las enfermedades de los ojos.",
+    "active": true
+  }
+]

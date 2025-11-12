@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Felipe",
+    "lastName": "Tovar",
+    "email": "felipe@gmail.com",
+    "phone": "3100000000",
+    "active": true
+  },
+  {
+    "name": "Samuel",
+    "lastName": "Aviles",
+    "email": "samuel@gmail.com",
+    "phone": "3001000101",
+    "active": true
+  }
+]

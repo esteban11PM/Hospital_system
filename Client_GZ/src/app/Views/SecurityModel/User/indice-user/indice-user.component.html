@@ -1,0 +1,14 @@
+<h2>User</h2>
+
+<button class="btn-register" mat-raised-button routerLink="/securitymodel/user/create">
+    <mat-icon>add_circle</mat-icon> Registrar
+</button>
+
+<app-base-table
+    [data]="userData"
+    [columns]="columnasMostrar"
+    [tooltipColumns]="[]"
+    [statusLabels]="{ true: 'Activo', false: 'Inactivo' }"
+    (onEdit)="editarUser($event)"
+    (onDelete)="eliminarUser($event)">
+</app-base-table>

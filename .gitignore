@@ -1,0 +1,80 @@
+# Server_GZ
+# Global packages, tools, and cache
+Server_GZ/.nuget/
+Server_GZ/*/packages/
+Server_GZ/.vs/
+
+# Build artifacts
+Server_GZ/*/bin/
+Server_GZ/*/obj/
+Server_GZ/*/out/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider
+*.idea/
+
+# Dotnet tools & logs
+*.nupkg
+*.snupkg
+*.log
+
+# Auto-generated files
+Generated/
+*.generated.cs
+
+# Secrets and config
+*appsettings.Secrets.json
+
+# ===============================================
+# ===============================================
+# ===============================================
+
+# Client_GZ
+# Compiled output
+Client_GZ/dist/
+Client_GZ/tmp/
+Client_GZ/out-tsc/
+Client_GZ/bazel-out/
+
+# Node
+Client_GZ/node_modules/
+Client_GZ/npm-debug.log
+Client_GZ/yarn-error.log
+
+# IDEs and editors
+Client_GZ/.idea/
+Client_GZ/.project
+Client_GZ/.classpath
+Client_GZ/.c9/
+Client_GZ/*.launch
+Client_GZ/.settings/
+Client_GZ/*.sublime-workspace
+
+Client_GZ/.angular/cache/
+Client_GZ/.sass-cache/
+Client_GZ/connect.lock
+Client_GZ/coverage/
+Client_GZ/libpeerconnection.log
+Client_GZ/testem.log
+Client_GZ/typings/
+
+# Visual Studio Code (Descomentar :D)
+Client_GZ/.vscode/
+!Client_GZ/.vscode/settings.json
+!Client_GZ/.vscode/tasks.json
+!Client_GZ/.vscode/launch.json
+!Client_GZ/.vscode/extensions.json
+Client_GZ/.history/
+Miscellaneous
+
+# System files
+Client_GZ/.DS_Store
+Client_GZ/Thumbs.db
+
+# Others
+Entities.txt

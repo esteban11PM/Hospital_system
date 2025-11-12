@@ -1,0 +1,14 @@
+<h2>Accessory</h2>
+
+<button class="btn-register" mat-raised-button routerLink="/system/accessory/create">
+    <mat-icon>add_circle</mat-icon> Registrar
+</button>
+
+<app-base-table
+    [data]="accessoryData"
+    [columns]="columnasMostrar"
+    [tooltipColumns]="[]"
+    [statusLabels]="{ true: 'Activo', false: 'Inactivo' }"
+    (onEdit)="editarAccessory($event)"
+    (onDelete)="eliminarAccessory($event)">
+</app-base-table>

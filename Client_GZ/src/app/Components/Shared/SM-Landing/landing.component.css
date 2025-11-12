@@ -1,0 +1,232 @@
+.landing-container {
+	height: calc(100vh - 112px);
+	position: relative;
+	overflow: hidden;
+}
+
+
+
+/* Contenido principal */
+.main-content {
+	position: relative;
+	z-index: 1;
+	padding: 2rem;
+}
+
+/* Hero Section */
+.hero-section {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	margin-bottom: 1rem;
+	gap: 2rem;
+}
+
+.text-content {
+	flex: 1;
+}
+
+.text-content h1 {
+	text-transform: uppercase;
+	letter-spacing: 4px;
+	font-style: oblique;
+	font-size: 3.5rem;
+	color: #1976d2;
+	margin-bottom: 1rem;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+
+	animation-name: bounce;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+}
+
+@keyframes bounce {
+	0% {
+		transform: translateY(0);
+	}
+
+	50% {
+		transform: translateY(-10px);
+	}
+
+	100% {
+		transform: translateY(0);
+	}
+}
+
+
+.subtitle {
+	letter-spacing: 1px;
+	font-size: 1.5rem;
+	color: #4a5568;
+	margin-bottom: 1.5rem;
+	font-weight: 400;
+	text-align: center;
+}
+
+/* Panel de configuración */
+.config-panel {
+	margin-bottom: 3rem;
+}
+
+.config-card {
+	max-width: 800px;
+	margin: 0 auto;
+	background: white;
+	border-radius: 20px;
+	box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.config-card mat-card-header {
+	background: linear-gradient(135deg, #1976d2, #6163f8);
+	color: white;
+	border-radius: 20px 20px 0 0;
+	padding: 1.5rem;
+}
+
+.config-card mat-card-title {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	font-size: 1.3rem;
+}
+
+.config-content {
+	padding: 1.5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+/* Selector de base de datos */
+.database-selector {
+	display: flex;
+	align-items: center;
+}
+
+.db-select-field {
+	min-width: 300px;
+}
+
+.db-option {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+/* Estado de conexión */
+.connection-status {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.5rem 1rem;
+	border-radius: 25px;
+	background: #fed7d7;
+	color: #c53030;
+}
+
+.connection-status.connected {
+	background: #c6f6d5;
+	color: #2d774a;
+}
+
+.status-indicator {
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background: currentColor;
+	animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+	0%,
+	100% {
+		opacity: 1;
+	}
+
+	50% {
+		opacity: 0.5;
+	}
+}
+
+.status-text {
+	font-weight: 600;
+	font-size: 0.9rem;
+}
+
+/* Información de la base de datos */
+.db-info {
+	background: #f7fafc;
+	padding: 1rem;
+}
+
+.db-info h4 {
+	color: #2d3748;
+}
+
+/* Botón de cambiar BD (mejorado) */
+.btn-cambiar-bd {
+	cursor: pointer;
+	font-size: 1rem;
+	font-family: inherit;
+	font-weight: 600;
+	color: white;
+	background: linear-gradient(135deg, #6163f8, #6163f8);
+	padding: 0.8em 2em;
+	border-radius: 50em;
+	border: none;
+	box-shadow: 0 6px #4a5568;
+	transition: all 0.2s ease;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.btn-cambiar-bd:active {
+	transform: translateY(6px);
+	box-shadow: 0 0px;
+}
+
+.btn-cambiar-bd:disabled {
+	background: #a0aec0;
+	box-shadow: 0 6px #718096;
+	cursor: not-allowed;
+}
+
+.grow {
+	transition: all 0.3s ease;
+}
+
+.grow:hover:not(:disabled) {
+	transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+	.hero-section {
+		flex-direction: column;
+		text-align: center;
+	}
+
+	.text-content h1 {
+		font-size: 2.5rem;
+	}
+
+	.database-selector {
+		flex-direction: column;
+		align-items: stretch;
+		gap: 1rem;
+	}
+
+	.db-select-field {
+		min-width: auto;
+	}
+
+	.stats-section {
+		grid-template-columns: 1fr;
+	}
+}

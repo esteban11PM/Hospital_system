@@ -1,0 +1,216 @@
+.layout-container {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	position: relative;
+	overflow: hidden;
+}
+
+/* Efecto de partículas/gaming */
+.layout-container::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background:
+	radial-gradient(circle at 80% 20%, rgba(25, 118, 210, 0.3) 0%, transparent 50%),
+	radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+		radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
+	animation: pulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+	0% {
+		opacity: 0.5;
+	}
+
+	100% {
+		opacity: 0.8;
+	}
+}
+
+.main-content {
+	flex: 1;
+	display: flex !important;
+	flex-direction: column !important;
+	justify-content: center !important;
+	align-items: center !important;
+	box-sizing: border-box;
+	position: relative;
+	z-index: 1;
+}
+
+.contenedor-formulario {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 2rem;
+}
+
+.contenedor-formulario h1 {
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	font-size: 2.2rem;
+	color: #1976d2;
+	margin-bottom: 2rem;
+	position: relative;
+}
+
+.contenedor-formulario h1::after {
+	content: '🎮';
+	position: absolute;
+	right: -40px;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 1.5rem;
+}
+
+.formulario {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+	width: 400px;
+	padding: 2.5rem;
+	background: rgba(255, 255, 255, 0.95);
+	backdrop-filter: blur(10px);
+	border-radius: 20px;
+	box-shadow:
+		0 8px 32px rgba(0, 0, 0, 0.1),
+		0 0 0 1px rgba(255, 255, 255, 0.1),
+		inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Estilos para los campos de formulario */
+.mat-form-field {
+	width: 100%;
+}
+
+::ng-deep .mat-form-field-outline {
+	background-color: rgba(255, 255, 255, 0.9) !important;
+	border-radius: 8px !important;
+}
+
+::ng-deep .mat-form-field-outline-thick {
+	border-color: #6163f8 !important;
+}
+
+::ng-deep .mat-form-field-label {
+	color: #666 !important;
+}
+
+::ng-deep .mat-input-element {
+	color: #333 !important;
+}
+
+/* Botón de submit con estilo gaming */
+button[type="submit"] {
+	align-self: center;
+	height: 50px;
+	font-size: 16px;
+	font-weight: 600;
+	width: 60%;
+	background: linear-gradient(135deg, #1976d2, #6163f8) !important;
+	color: white !important;
+	border: none;
+	border-radius: 12px;
+	transition: all 0.3s ease;
+	position: relative;
+	overflow: hidden;
+}
+
+button[type="submit"]:hover:not(:disabled) {
+	transform: translateY(-2px);
+	box-shadow: 0 8px 20px rgba(25, 118, 210, 0.4);
+}
+
+button[type="submit"]:disabled {
+	background: #ccc !important;
+	transform: none;
+	box-shadow: none;
+}
+
+/* Efecto de pulso en el botón cuando está habilitado */
+button[type="submit"]:not(:disabled)::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -100%;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+	transition: left 0.5s;
+}
+
+button[type="submit"]:not(:disabled):hover::before {
+	left: 100%;
+}
+
+/* Botón de Google (comentado pero con estilo por si lo usas) */
+.btn-google {
+	align-self: center;
+	height: 48px;
+	font-size: 16px;
+	width: 50%;
+	background: white !important;
+	color: #757575 !important;
+	border: 1px solid #ddd !important;
+}
+
+/* Enlace de registro */
+.register-link {
+	margin-top: 1.5rem;
+	text-align: center;
+	color: #666;
+}
+
+.register-link a {
+	color: #1976d2;
+	text-decoration: none;
+	font-weight: 600;
+	transition: color 0.3s ease;
+}
+
+.register-link a:hover {
+	color: #6163f8;
+	text-decoration: underline;
+}
+
+/* Mensajes de error mejorados */
+.mat-error {
+	font-size: 0.8rem;
+	font-weight: 500;
+	margin-top: 4px;
+	display: block !important;
+}
+
+::ng-deep .mat-form-field-subscript-wrapper {
+	position: static !important;
+	margin-top: 4px;
+}
+
+::ng-deep .mat-error {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+	.formulario {
+		width: 90%;
+		padding: 2rem;
+		margin: 1rem;
+	}
+
+	.contenedor-formulario h1 {
+		font-size: 1.8rem;
+	}
+
+	button[type="submit"] {
+		width: 80%;
+	}
+}
