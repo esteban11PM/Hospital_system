@@ -1,7 +1,7 @@
 <div class="appointments-container">
   <div class="header">
     <h1>Gestión de Citas</h1>
-    <button mat-raised-button color="primary">
+    <button mat-raised-button color="primary" (click)="openCreateDialog()">
       <mat-icon>add</mat-icon>
       Nueva Cita
     </button>
@@ -51,10 +51,10 @@
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef>Acciones</th>
         <td mat-cell *matCellDef="let appointment">
-          <button mat-icon-button color="primary" title="Editar">
+          <button mat-icon-button color="primary" title="Editar" (click)="openEditDialog(appointment)">
             <mat-icon>edit</mat-icon>
           </button>
-          <button mat-icon-button color="warn" title="Eliminar">
+          <button mat-icon-button color="warn" title="Eliminar" (click)="deleteAppointment(appointment)">
             <mat-icon>delete</mat-icon>
           </button>
         </td>

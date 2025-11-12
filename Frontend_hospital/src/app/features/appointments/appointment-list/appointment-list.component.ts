@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog } from '@angular/material/dialog';
 import { AppointmentService } from '../../../core/services/appointment.service';
+import { AlertService } from '../../../core/services/alert.service';
+import { AppointmentFormComponent } from '../appointment-form/appointment-form.component';
 import { Appointment } from '../../../core/models/medical.models';
 
 @Component({
@@ -14,7 +17,11 @@ export class AppointmentListComponent implements OnInit {
   dataSource = new MatTableDataSource<Appointment>();
   isLoading = false;
 
-  constructor(private appointmentService: AppointmentService) {}
+  constructor(
+    private appointmentService: AppointmentService,
+    private alertService: AlertService,
+    private dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.loadAppointments();
@@ -57,5 +64,46 @@ export class AppointmentListComponent implements OnInit {
       'Completed': 'status-completed'
     };
     return classMap[status] || 'status-default';
+  }
+
+  openCreateDialog(): void {
+    const dialogRef = this.dialog.open(AppointmentFormComponent, {
+      width: '600px',
+      data: { mode: 'create' }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.loadAppointments();
+      }
+    });
+  }
+
+  openEditDialog(appointment: Appointment): void {
+    const dialogRef = this.dialog.open(AppointmentFormComponent, {
+      width: '600px',
+      data: { mode: 'edit', appointment }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.loadAppointments();
+      }
+    });
+  }
+
+  deleteAppointment(appointment: Appointment): void {
+    if (confirm(`¿Está seguro de que desea eliminar la cita de ${appointment.patient?.name} ${appointment.patient?.lastName}?`)) {
+      this.appointmentService.deleteAppointment(appointment.id).subscribe({
+        next: () => {
+          this.alertService.success('Eliminada', 'Cita eliminada correctamente');
+          this.loadAppointments();
+        },
+        error: (error) => {
+          console.error('Error deleting appointment:', error);
+          this.alertService.error('Error', 'No se pudo eliminar la cita');
+        }
+      });
+    }
   }
 }
